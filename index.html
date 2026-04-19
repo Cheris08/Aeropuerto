@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Mensajes MVT</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    
+    <main class="container">
+        <header>
+            <img src="titulo.png" alt="Logo LATAM" class="titulo-img">
+        </header>
+
+        <form id="mvt-form">
+
+            <div class="cards-top">
+                <section class="card">
+                    <h2>Llegada</h2>
+                    <div class="input-group">
+                        <label>Vuelo de llegada</label>
+                        <input type="text" id="vuelo_llegada" placeholder="LA1234">
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Fecha</label>
+                            <input type="date" id="fecha">
+                        </div>
+                        <div class="input-group">
+                            <label>Aeronave</label>
+                            <input type="text" id="aeronave" placeholder="CC-BBA">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Aeropuerto de Llegada</label>
+                        <input type="text" id="apto_llegada" placeholder="SCL">
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Hora Aterrizaje</label>
+                            <input type="time" id="hora_aterriz">
+                        </div>
+                        <div class="input-group">
+                            <label>Hora de Calzado</label>
+                            <input type="time" id="hora_calzado">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h2>Salida</h2>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Vuelo de salida</label>
+                            <input type="text" id="vuelo_salida">
+                        </div>
+                        <div class="input-group">
+                            <label>Destino</label>
+                            <input type="text" id="destino">
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Hora Salida</label>
+                            <input type="time" id="hora_salida">
+                        </div>
+                        <div class="input-group">
+                            <label>Hora Despegue</label>
+                            <input type="time" id="hora_despegue">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Duración de Vuelo</label>
+                        <input type="text" id="duracion" placeholder="0100">
+                    </div>
+                    <div class="input-group">
+                        <label>Alternativo</label>
+                        <input type="text" id="alternativo">
+                    </div>
+                </section>
+            </div>
+
+            <div class="grid-container">
+                <section class="card full-width">
+                    <h2>Códigos DL (Demoras)</h2>
+                    <div class="dl-grid">
+                        <div class="input-group">
+                            <label>Código DL 1</label>
+                            <input type="text" id="dl1_codigo">
+                            <label>Hora de Notificación</label>
+                            <input type="time" id="dl1_hora">
+                        </div>
+                        <div class="input-group">
+                            <label>Código DL 2</label>
+                            <input type="text" id="dl2_codigo">
+                            <label>Hora de Notificación</label>
+                            <input type="time" id="dl2_hora">
+                        </div>
+                        <div class="input-group">
+                            <label>Código DL 3</label>
+                            <input type="text" id="dl3_codigo">
+                            <label>Hora de Notificación</label>
+                            <input type="time" id="dl3_hora">
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <button type="submit" class="btn-generate">GENERAR MVT</button>
+        </form>
+    </main>
+
+    <!-- Popup -->
+    <div id="popup-overlay" class="popup-overlay" onclick="cerrarPopup()">
+        <div class="popup-box" onclick="event.stopPropagation()">
+            <h3>Mensaje MVT Generado</h3>
+            <textarea id="mensaje-output" readonly></textarea>
+            <div class="popup-botones">
+                <button class="btn-copiar" onclick="copiarMensaje()">📋 COPIAR</button>
+                <button class="btn-cerrar" onclick="cerrarPopup()">✕ CERRAR</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="mvt.js"></script>
+</body>
+</html>
